@@ -8,7 +8,9 @@
 
   <form method="post" action="/prototype-admin/reset">
     <input type="hidden" name="returnPage" value="{{ returnPage }}">
-    {{ nhswButton({ text: "Reset data", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+    <div class="nhsw-form-group">
+      {{ nhswButton({ text: "Reset data", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+    </div>
   </form>
 
   <p class="nhsw-body"><a class="nhsw-link" href="{{ returnPage }}">Cancel</a></p>
