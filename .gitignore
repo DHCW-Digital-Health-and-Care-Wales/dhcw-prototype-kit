@@ -1,0 +1,12 @@
+node_modules/
+.env
+*.log
+coverage/
+
+build/*
+!build/README.md
+!build/scripts/
+
+.vs/
+.DS_Store
+Thumbs.db

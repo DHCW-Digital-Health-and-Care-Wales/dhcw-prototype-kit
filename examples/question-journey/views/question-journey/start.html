@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% set pageName = "Order a repeat prescription" %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      <h1 class="nhsw-h1">Order a repeat prescription</h1>
+      <p class="nhsw-body">This example shows how to link pages, save answers and send people to different pages.</p>
+      {{ nhswButton({ text: "Start now", href: "/question-journey/prescription", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+    </div>
+  </div>
+{% endblock %}

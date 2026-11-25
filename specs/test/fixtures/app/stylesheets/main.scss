@@ -1,0 +1,5 @@
+@use "dhcw-design-system/src/tokens/colours" as c;
+
+.fixture {
+  color: c.$nhswales-link-colour;
+}

@@ -1,0 +1,13 @@
+{% extends "kit/template.html" %}
+
+{% block footer %}
+  {{ nhswFooter({}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      {% block adminContent %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

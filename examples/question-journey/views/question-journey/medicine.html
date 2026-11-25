@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set pageName = "What is the name of your medicine?" %}
+
+{% block beforeContent %}
+  {{ nhswBackLink({ href: "/question-journey/prescription" }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      {% if error %}
+        {{ nhswErrorSummary({ errorList: [{ text: error, href: "#medicine" }] }) }}
+      {% endif %}
+
+      <h1 class="nhsw-h2">What is the name of your medicine?</h1>
+
+      <form method="post" novalidate>
+        {{ nhswInput({
+          id: "medicine",
+          label: { text: "Medicine name" },
+          hint: { text: "Do not enter real patient information" },
+          errorMessage: ({ text: error } if error else null),
+          value: data.medicine
+        }) }}
+        {{ nhswButton({ text: "Continue", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

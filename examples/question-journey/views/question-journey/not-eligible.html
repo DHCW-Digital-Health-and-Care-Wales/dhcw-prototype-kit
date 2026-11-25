@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% set pageName = "You cannot order online" %}
+
+{% block beforeContent %}
+  {{ nhswBackLink({ href: "/question-journey/prescription" }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      <h1 class="nhsw-h1">You cannot order online</h1>
+      <p class="nhsw-body">You need a repeat prescription to use this service. Contact your GP practice.</p>
+    </div>
+  </div>
+{% endblock %}

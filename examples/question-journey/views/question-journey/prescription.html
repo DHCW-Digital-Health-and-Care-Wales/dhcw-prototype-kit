@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set pageName = "Do you have a repeat prescription?" %}
+
+{% block beforeContent %}
+  {{ nhswBackLink({ href: "/question-journey/start" }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      {% if error %}
+        {{ nhswErrorSummary({ errorList: [{ text: error, href: "#prescription-1" }] }) }}
+      {% endif %}
+
+      <form method="post" novalidate>
+        {{ nhswRadios({
+          name: "prescription",
+          fieldset: { legend: { html: "<h1 class='nhsw-h2'>Do you have a repeat prescription?</h1>", classes: "" } },
+          errorMessage: ({ text: error } if error else null),
+          items: [
+            { value: "yes", text: "Yes", checked: checked("prescription", "yes") },
+            { value: "no", text: "No", checked: checked("prescription", "no") }
+          ]
+        }) }}
+        {{ nhswButton({ text: "Continue", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

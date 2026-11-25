@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set pageName = "Check your answers" %}
+
+{% block beforeContent %}
+  {{ nhswBackLink({ href: "/question-journey/medicine" }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-two-thirds">
+      <h1 class="nhsw-h1">Check your answers</h1>
+      {{ nhswSummaryList({
+        rows: [
+          {
+            key: { text: "Repeat prescription" },
+            value: { text: "Yes" if data.prescription == "yes" else "No" },
+            actions: { items: [{ href: "/question-journey/prescription", text: "Change", visuallyHiddenText: "repeat prescription" }] }
+          },
+          {
+            key: { text: "Medicine" },
+            value: { text: data.medicine },
+            actions: { items: [{ href: "/question-journey/medicine", text: "Change", visuallyHiddenText: "medicine" }] }
+          }
+        ]
+      }) }}
+
+      <form method="post">
+        {{ nhswButton({ text: "Confirm and send", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

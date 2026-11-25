@@ -1,0 +1,14 @@
+{% extends "kit/admin.html" %}
+
+{% set pageName = "Page not found" %}
+
+{% block adminContent %}
+  <h1 class="nhsw-h1">Page not found</h1>
+  {% if production %}
+    <p class="nhsw-body">Check the web address is correct.</p>
+  {% else %}
+    <p class="nhsw-body">There is no page at <code class="nhsw-code">{{ currentPage }}</code>.</p>
+    <p class="nhsw-body">To create it, add a file called <code class="nhsw-code">{{ suggestedFile }}</code>.</p>
+  {% endif %}
+  <p class="nhsw-body"><a class="nhsw-link" href="/">Go to the start of the prototype</a></p>
+{% endblock %}

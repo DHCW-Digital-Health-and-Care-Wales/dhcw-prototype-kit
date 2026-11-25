@@ -1,0 +1,15 @@
+{% extends "kit/admin.html" %}
+
+{% set pageName = "Reset data" %}
+
+{% block adminContent %}
+  <h1 class="nhsw-h1">Reset data</h1>
+  <p class="nhsw-body">This clears the answers you have entered in this prototype.</p>
+
+  <form method="post" action="/prototype-admin/reset">
+    <input type="hidden" name="returnPage" value="{{ returnPage }}">
+    {{ nhswButton({ text: "Reset data", type: "submit", classes: "nhsw-button--primary nhsw-button--inline" }) }}
+  </form>
+
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ returnPage }}">Cancel</a></p>
+{% endblock %}

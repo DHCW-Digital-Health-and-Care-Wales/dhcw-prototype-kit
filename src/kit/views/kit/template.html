@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}{% if pageName %}{{ pageName }} – {% endif %}{{ serviceName }}{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/dhcw-icon.svg">
+  <link rel="stylesheet" href="/assets/nhsw-fonts.css">
+  <link rel="stylesheet" href="/nhsw/nhsw.min.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  {{ nhswSkipLink({}) }}
+
+  {% block header %}
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container nhsw-site-header__container--fluid">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="/">
+          <span class="nhsw-site-header__logo"><img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"></span>
+          <span class="nhsw-site-header__title">{{ serviceName }}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  {% endblock %}
+
+  {% block phaseBanner %}
+    {{ nhswPhaseBanner({ tag: "Prototype", text: "This is a prototype used for research. It is not a real service." }) }}
+  {% endblock %}
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-fluid-container">
+      {% block beforeContent %}{% endblock %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  {% block footer %}
+    {{ nhswFooter({
+      links: [
+        { text: "Home", href: "/" },
+        { text: "Reset data", href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode) }
+      ]
+    }) }}
+  {% endblock %}
+
+  <script src="/nhsw/nhsw-behaviours.min.js"></script>
+  <script src="/assets/kit.js"></script>
+  {% block scripts %}{% endblock %}
+  {% if liveReload %}<script src="/assets/live-reload.js"></script>{% endif %}
+</body>
+</html>

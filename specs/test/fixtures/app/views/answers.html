@@ -1,0 +1,6 @@
+organisation={{ data.organisation }}
+name={{ data.name }}
+nested={{ data.person.name }}
+colours={{ (data.colours or []) | join(",") }}
+red={{ checked("colours", "red") }}
+shout={{ data.name | shout }}

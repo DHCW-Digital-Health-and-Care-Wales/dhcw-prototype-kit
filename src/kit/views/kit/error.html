@@ -1,0 +1,14 @@
+{% extends "kit/admin.html" %}
+
+{% set pageName = "There is a problem with the prototype" %}
+
+{% block adminContent %}
+  <h1 class="nhsw-h1">There is a problem with the prototype</h1>
+  {% if detail %}
+    <p class="nhsw-body">The error was:</p>
+    <p class="nhsw-body"><code class="nhsw-code">{{ detail }}</code></p>
+    <p class="nhsw-body">The terminal has more information.</p>
+  {% else %}
+    <p class="nhsw-body">Try again later.</p>
+  {% endif %}
+{% endblock %}
